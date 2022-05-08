@@ -112,6 +112,8 @@ def create_csv():
         for i in range (len(r)):
             ts = int(r[i]['video_publish_date'])
             time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            writer.writerow([' ' + str(r[i]['video_title']) + ' ; ' + str(r[i]['channel_title']) + ' ; ' + str(time) + ' '])
+            str1 = str(r[i]['video_title']).replace(";", " ")
+            str2 = str(r[i]['channel_title']).replace(";", " ")
+            writer.writerow([' ' + str1 + ' ; ' + str2 + ' ; ' + str(time) + ' '])
 
 create_csv()
